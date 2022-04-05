@@ -1,0 +1,59 @@
+/*------------------------------------------------------------------
+		File Name: responsive.css
+-------------------------------------------------------------------*/
+
+@media (max-width:991px) {
+    .sideBar_close{
+        left: -250px;
+        visibility: hidden;
+        width: 0px;
+        transition: 0.5s;
+        -webkit-transition: 0.5s;
+        -moz-transition: 0.5s;
+        -ms-transition: 0.5s;
+        -o-transition: 0.5s;
+}
+
+    .content-wrapper {
+        margin-left: 0px !important;
+    }
+
+    .footer_section {
+        margin-left: 0px;
+        background-color: #fff;
+        padding: 15px;
+        text-align: center;
+    }
+
+}
+
+@media (min-width:992px){
+    .sideBar_close_btn{
+        display: none;
+    }
+
+    .collapse_btn{
+        visibility: hidden;
+    }
+}
+
+@media (max-width:575px){
+    .dropdown-menu-xl {
+        position: absolute;
+        right: auto;
+        left: -11px;
+        width: 94%;
+        margin-top: 21px;
+    }
+
+    .message_box {
+        position: absolute;
+        right: auto;
+        left: -64px;
+        width: 94%;
+    }
+
+    .profile_link {
+        margin-top: 16px;
+    }
+}

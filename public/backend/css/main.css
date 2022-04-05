@@ -1,0 +1,444 @@
+/*------------------------------------------------------------------
+		File Name: Main.css
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+		1. IMPORT FONTS
+-------------------------------------------------------------------*/
+
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600,700,900);
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,500i,700,700i);
+@import url(https://fonts.googleapis.com/css?family=Arvo:400,400i,700,700i);
+
+/*------------------------------------------------------------------
+    2. BASIC
+-------------------------------------------------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    outline: none !important;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #545b62;
+    background-color: #f8f9fe;
+    font-family: sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    color: #1f1f1f;
+    text-decoration: none !important;
+    outline: none !important;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+ol,
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin-bottom: 0px !important;
+    line-height: 1.5;
+}
+
+/* width */
+.sideBar_wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(138, 135, 150);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.footer_section {
+    margin-left: 250px;
+    background-color: #fff;
+    padding: 15px;
+    text-align: center;
+}
+
+/*------------------------------------------------------------------
+    3. SIDEBAR AND TOP NAVBAR CONTENT
+-------------------------------------------------------------------*/
+.sideBar_wrapper {
+    display: block;
+    position: fixed;
+    width: 250px;
+    background-color: rgb(255 255 255);
+    height: 100%;
+    overflow-y: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 9999;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+}
+
+.content-wrapper {
+    display: block;
+    position: relative;
+    margin-left: 250px;
+}
+
+nav.navbar {
+    background-color: #0062cc;
+    display: block;
+    position: relative;
+    -webkit-box-shadow: 0px 5px 10px rgb(0 0 0 / 7%);
+    box-shadow: 0px 5px 10px rgb(0 0 0 / 7%);
+}
+
+button.collapse_btn {
+    border: 1px solid #ced4da;
+    padding: 3px 10px;
+    border-radius: 100%;
+    font-size: 20px;
+    color: #545b62;
+    cursor: pointer;
+}
+
+button.sideBar_close_btn {
+    border: none;
+    background-color: #0062cc;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #fff;
+    padding: 0px 10px;
+    border-bottom-left-radius: 10px;
+}
+
+a.logo {
+    font-size: 40px;
+    color: #007bff;
+    font-weight: 800;
+    padding: 15px 0;
+}
+
+.nav-link.active {
+    margin-right: .5rem;
+    margin-left: .5rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    border-radius: .375rem;
+    background: #f6f9fc;
+}
+
+ul.navbar-nav > li > a {
+    margin: 5px 25px;
+}
+
+h6.divider_header {
+    margin: 0 25px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+
+
+.dropdown-menu-right {
+    right: 0;
+    left: auto;
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.right_content > .btn-group > button {
+    font-size: 17px;
+    border: none;
+    background: transparent;
+    outline: none;
+    position: relative;
+    display: block;
+    margin-left: 25px;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.dropdown-menu-xl {
+    min-width: 275px;
+    border-radius: .4375rem;
+}
+
+.dropdown_heading > p {
+    font-size: 15px;
+    padding: 10px;
+    font-weight: 600;
+    padding-bottom: 20px;
+    font-family: sans-serif;
+    color: #6c757d;
+}
+
+a.list-group-item {
+    border-right: none;
+    border-left: none;
+    border-radius: 0px !important;
+}
+
+sup.bg-danger.px-1.rounded-circle {
+    font-family: sans-serif;
+    font-weight: 100;
+    margin-left: -10px;
+}
+
+.pro_body > p {
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #545b62;
+    padding: 10px;
+}
+
+.pro_body > ul > li > a {
+    font-size: 15px;
+    display: block;
+    padding: 5px 15px;
+    color: #495057;
+}
+
+.pro_body > ul > li > a:hover {
+    background-color: #f8f9fe;
+}
+
+.list-group-item.active {
+    z-index: 2;
+    color: #545b62;
+    background-color: #e3f1fd;
+    border-color: #e3f1fd;
+}
+
+a.list-group-item {
+    font-size: 12px;
+    color: #545b62;
+}
+
+.dropdown-menu {
+    padding: 0px !important;
+}
+
+a.view_all {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    color: #0062cc;
+    font-weight: 600;
+}
+
+/*------------------------------------------------------------------
+    4. MAIN HOME CONTENT
+-------------------------------------------------------------------*/
+
+.main_content {
+    position: relative;
+    display: block;
+    margin-top: 70px;
+    padding: 15px;
+}
+
+.breadcrumb {
+    background-color: transparent;
+    border-radius: 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.card_left > p {
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #a1b0bf;
+}
+
+.card_left > h5 {
+    font-size: 25px;
+    font-weight: 600;
+    padding-bottom: 10px;
+    font-family: sans-serif;
+}
+
+.card_right > i {
+    color: #f8f9fa;
+    font-size: 25px;
+    padding: 13px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+p.card_footer {
+    font-size: 15px;
+    font-weight: 400;
+    font-family: sans-serif;
+}
+
+.card.p-4 {
+    background-color: #e3f1fd;
+}
+
+
+/*------------------------------------------------------------------
+    1. DATA TABLE PAGE START
+-------------------------------------------------------------------*/
+.content_section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+
+/*------------------------------------------------------------------
+    1. TEXTAREA EDITOR
+-------------------------------------------------------------------*/
+.note-toolbar {
+    position: relative;
+    background-color: #dae0e5;
+}
+
+
+a.accordian_heading::before {
+    float: right !important;
+    content:"-";
+    padding-right: 5px;
+}
+a.accordian_heading.collapsed::before {
+    float: right !important;
+    content:"+";
+}
+
+
+/*------------------------------------------------------------------
+    1. INPUT CHECKBOX 
+-------------------------------------------------------------------*/
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+/*------------------------------------------------------------------
+    1. DETAIL PAGE
+-------------------------------------------------------------------*/
+  .detail_card {
+    display: block;
+    position: relative;
+    border: 1px solid #eeeeee;
+}
+
+.card_heading {
+    position: relative;
+    display: block;
+    padding: 10px;
+    background-color: #dae0e5;
+    color: #545b62;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+td.left_td {
+    background-color: #eeeeee;
+    width: 30%;
+}
+
+td.left_td,
+td.right_td {
+    padding: 20px;
+}
+
+.card_body {
+    font-size: 14px;
+}
+
+li.item-active {
+    background-color: #ced4da;
+}
