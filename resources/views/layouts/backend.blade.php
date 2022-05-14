@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="{{asset('backend/css/main.css')}}">
     <!-- Responsive css -->
     <link rel="stylesheet" href="{{asset('backend/css/responsive.css')}}">
+    <link rel="stylesheet" href="{{asset('backend/vendor/css/data-table/dataTables.bootstrap4.min.css')}}">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 </head>
 
 <body>
@@ -47,6 +49,12 @@
     <script type="text/javascript" src="{{asset('backend/js/bootstrap.min.js')}}"></script>
     <!-- Optional js  -->
     <script type="text/javascript" src="{{asset('backend/js/main.js')}}"></script>
+
+    <!-- data table -->
+    <script type="text/javascript" src="{{asset('backend/vendor/js/data-table/jquery.dataTables.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('backend/vendor/js/data-table/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+        {!! Toastr::message() !!}
 </body>
 
 </html>

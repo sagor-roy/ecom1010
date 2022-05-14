@@ -22,6 +22,7 @@
 
 	<!-- Favicons -->
     <link rel="shortcut icon" href="assets/ico/favicon.ico">
+	<link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
   </head>
 <body>
 <!-- 
@@ -510,5 +511,7 @@ accompanied by English versions from the 1914 translation by H. Rackham.
 	<script src="{{asset('frontend/assets/js/jquery.easing-1.3.min.js')}}"></script>
     <script src="{{asset('frontend/assets/js/jquery.scrollTo-1.4.3.1-min.js')}}"></script>
     <script src="{{asset('frontend/assets/js/shop.js')}}"></script>
+	<script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+        {!! Toastr::message() !!}
   </body>
 </html>
