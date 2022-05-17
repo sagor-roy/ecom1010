@@ -1,25 +1,24 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\Category;
+use App\Models\HomeSlider;
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use Toastr;
 use Validator;
 
-class CategoryController extends Controller
+class HomeSettingController extends Controller
 {
     public function index() {
-        $data = Category::latest()->get();
-        return view('backend.category',compact('data'));
+        $data = HomeSlider::latest()->get();
+        return view('backend.home_setting',compact('data'));
     }
 
     public function store(Request $request) {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|unique:categories,name',
+            'title' => 'required|unique:home_sliders,title',
+            'desc' => 'required',
             'img' => 'required|mimes:png,jpg,jpeg',
         ]);
 
@@ -31,14 +30,48 @@ class CategoryController extends Controller
             if ($request->hasFile('img')) {
                 $file = $request->file('img');
                 $name = time().'.'.$file->getClientOriginalExtension(); 
-                $file->move('uploads/category/',$name);
+                $file->move('uploads/slider/',$name);
             }
-            Category::create([
-                'name'=>$request->input('name'),
-                'slug'=>Str::slug($request->input('name')),
-                'img'=>'uploads/category/'.$name
+            HomeSlider::create([
+                'title'=>$request->input('title'),
+                'desc'=>$request->input('desc'),
+                'img'=>'uploads/slider/'.$name
             ]);
-            Toastr::success('Category create successfull!!');
+            Toastr::success('Slider create successfull!!');
+            return redirect()->back();
+        } catch (Exception $error) {
+            Toastr::warning($error->getMessage());
+            return redirect()->back();
+        }
+    }
+
+    public function update(Request $request,$id) {
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'desc' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors(Toastr::error($validator->errors()->all()[0]))->withInput();
+        }
+
+        try {
+            $slider = HomeSlider::find($id);
+            $slider->title = $request->input('title');
+            $slider->desc = $request->input('desc');
+            if ($request->hasFile('img')) {
+                $file = $request->file('img');
+                $name = time().'.'.$file->getClientOriginalExtension(); 
+                $file->move('uploads/slider/',$name);
+
+                if (file_exists(public_path($slider->img))) {
+                    unlink(public_path($slider->img));
+                }
+                
+                $slider->img = 'uploads/slider/'.$name;
+            }
+            $slider->update();
+            Toastr::success('Slider update successfull!!');
             return redirect()->back();
         } catch (Exception $error) {
             Toastr::warning($error->getMessage());
@@ -47,45 +80,12 @@ class CategoryController extends Controller
     }
 
     public function destroy($id) {
-        $cat = Category::find($id);
-        if (file_exists(public_path($cat->img))) {
-            unlink(public_path($cat->img));
+        $slider = HomeSlider::find($id);
+        if (file_exists(public_path($slider->img))) {
+            unlink(public_path($slider->img));
         }
-        $cat->delete();
-        Toastr::success('Category deleted successfull!!');
+        $slider->delete();
+        Toastr::success('Slider deleted successfull!!');
         return redirect()->back();
-    }
-
-    public function update(Request $request,$id) {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required'
-        ]);
-
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors(Toastr::error($validator->errors()->all()[0]))->withInput();
-        }
-
-        try {
-            $cate = Category::find($id);
-            $cate->name = $request->input('name');
-            $cate->slug = Str::slug($request->input('name'));
-            if ($request->hasFile('img')) {
-                $file = $request->file('img');
-                $name = time().'.'.$file->getClientOriginalExtension(); 
-                $file->move('uploads/category/',$name);
-
-                if (file_exists(public_path($cate->img))) {
-                    unlink(public_path($cate->img));
-                }
-                
-                $cate->img = 'uploads/category/'.$name;
-            }
-            $cate->update();
-            Toastr::success('Category update successfull!!');
-            return redirect()->back();
-        } catch (Exception $error) {
-            Toastr::warning($error->getMessage());
-            return redirect()->back();
-        }
     }
 }

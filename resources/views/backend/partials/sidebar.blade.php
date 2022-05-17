@@ -13,6 +13,10 @@
                     <span class="mx-2">Dashboard</span></a>
             </li>
             <li class="nav-item">
+                <a class="nav-link {{request()->is('admin/home-setting') ? 'active':''}}" href="{{route('admin.home-setting')}}"><i class="fa fa-fw fa-user-circle text-success"></i>
+                    <span class="mx-2">Home Setting</span></a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link {{request()->is('admin/category') ? 'active':''}}" href="{{route('admin.category')}}"><i class="fa fa-fw fa-user-circle text-success"></i>
                     <span class="mx-2">Category</span></a>
             </li>

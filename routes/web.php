@@ -3,6 +3,7 @@
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\HomeSettingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,5 +33,12 @@ Route::prefix('admin')->name('admin.')->group(function(){
     // category
     Route::get('category',[CategoryController::class,'index'])->name('category');
     Route::post('store',[CategoryController::class,'store'])->name('categroy.store');
+    Route::post('update/{id}',[CategoryController::class,'update'])->name('categroy.update');
     Route::get('category/{id}/delete',[CategoryController::class,'destroy'])->name('category.delete');
+
+    // home setting
+    Route::get('home-setting',[HomeSettingController::class,'index'])->name('home-setting');
+    Route::post('store/slider',[HomeSettingController::class,'store'])->name('slider.store');
+    Route::post('update/slider/{id}',[HomeSettingController::class,'update'])->name('slider.update');
+    Route::get('slider/delete/{id}',[HomeSettingController::class,'destroy'])->name('slider.destroy');
 });
