@@ -20,6 +20,10 @@
                 <a class="nav-link {{request()->is('admin/category') ? 'active':''}}" href="{{route('admin.category')}}"><i class="fa fa-fw fa-user-circle text-success"></i>
                     <span class="mx-2">Category</span></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link {{request()->is('admin/product') ? 'active':''}}" href="{{route('admin.product')}}"><i class="fa fa-fw fa-user-circle text-success"></i>
+                    <span class="mx-2">Product</span></a>
+            </li>
         </ul>
     </nav>
 </div>

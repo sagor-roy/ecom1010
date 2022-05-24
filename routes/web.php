@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\HomeSettingController;
 use Illuminate\Support\Facades\Route;
@@ -41,4 +42,9 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::post('store/slider',[HomeSettingController::class,'store'])->name('slider.store');
     Route::post('update/slider/{id}',[HomeSettingController::class,'update'])->name('slider.update');
     Route::get('slider/delete/{id}',[HomeSettingController::class,'destroy'])->name('slider.destroy');
+
+    // product 
+    Route::get('product',[ProductController::class,'index'])->name('product');
+    Route::get('create',[ProductController::class,'create'])->name('create.product');
+    Route::post('product/store',[ProductController::class,'store'])->name('product.store');
 });
