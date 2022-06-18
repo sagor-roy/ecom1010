@@ -27,4 +27,8 @@ class Product extends Model
         'best',
     ];
 
+    public function cate() {
+        return $this->belongsTo(Category::class,'cate_id');
+    }
+
 }

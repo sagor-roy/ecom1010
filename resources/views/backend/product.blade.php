@@ -36,21 +36,30 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($product as $item)
+                        @php
+                            $images = json_decode($item->img);
+                        @endphp
                         <tr>
                             <td>
-                                <img width="70" src="" alt="">
+                                <img width="70" src="{{ url($images[0]) }}" alt="img">
                             </td>
-                            <td>Lorem ipsum dolor sit amet.</td>
-                            <td>Shoes</td>
-                            <td>Lorem ipsum dolor sit, amet consectetur adipisicing.</td>
+                            <td>{{ $item->name }}</td>
+                            <td>{{ $item->cate->name }}</td>
+                            <td>{{ $item->short }}</td>
                             <td>
+                                @if ($item->status == 1)
                                 <span class="badge badge-success">active</span>
+                                @else
+                                <span class="badge badge-danger">deactive</span>
+                                @endif
                             </td>
                             <td>
-                                <a href="" class="btn btn-primary">edit</a>
-                                <a href="" class="btn btn-danger">delete</a>
+                                <a href="{{ route('admin.product.edit',$item->id) }}" class="btn btn-primary">edit</a>
+                                <a onclick="return confirm('Are you sure to Delete?')" href="{{ route('admin.product.delete',$item->id) }}" class="btn btn-danger">delete</a>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
