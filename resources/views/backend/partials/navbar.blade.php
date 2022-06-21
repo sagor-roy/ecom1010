@@ -188,28 +188,16 @@
             <!-- user profile link-->
             <div class="btn-group">
                 <button class="dropdown-toggle user" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img width="35px" class="img-fluid rounded-circle" src="{{asset('backend/vendor/img/avata/team-4.jpg')}}" alt=""> <span class="mx-2">John Doe</span>
+                    <img width="35px" class="img-fluid rounded-circle" src="{{asset('backend/vendor/img/avata/team-4.jpg')}}" alt=""> <span class="mx-2">{{ Auth::user()->name }}</span>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right profile_link">
                     <div class="pro_body">
                         <p>welcome</p>
                         <ul>
-                            <li><a href="#">
-                                    <i class="fas fa-user text-success"></i> <span class="mx-2">My Profile</span>
-                                </a></li>
-                            <li><a href="#">
-                                    <i class="fas fa-cogs text-primary"></i> <span class="mx-2">Setting</span>
-                                </a></li>
-                            <li><a href="#">
-                                    <i class="fas fa-calendar-week text-info"></i> <span class="mx-2">Activity</span>
-                                </a></li>
-                            <li><a href="#">
-                                    <i class="far fa-life-ring text-warning"></i> <span class="mx-2">Support</span>
-                                </a></li>
-                            <hr class="m-0">
-                            <li><a href="#">
+                            <li><a href="{{ route('logout') }}">
                                     <i class="fas fa-sign-out-alt text-danger"></i> <span class="mx-2">Logout</span>
-                                </a></li>
+                            </a>
+                        </li>
                         </ul>
                     </div>
                 </div>
