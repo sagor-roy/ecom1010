@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\HomeSlider;
+use Brian2694\Toastr\Facades\Toastr;
 use Exception;
 use Illuminate\Http\Request;
-use Toastr;
-use Validator;
+use Illuminate\Support\Facades\Validator;
 
 class HomeSettingController extends Controller
 {

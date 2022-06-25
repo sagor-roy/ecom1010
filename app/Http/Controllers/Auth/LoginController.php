@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
-    public function login(Request $request) {
+    public function login(Request $request)
+    {
         $validator = Validator::make($request->all(), [
             'email' => 'required',
             'password' => 'required',
@@ -20,7 +21,7 @@ class LoginController extends Controller
             return redirect()->back()->withErrors(Toastr::error($validator->errors()->all()[0]))->withInput();
         }
 
-        $creadential = $request->only(['email','password']);
+        $creadential = $request->only(['email', 'password']);
 
         if (Auth::attempt($creadential)) {
             if (Auth::user()->role == 'admin') {
@@ -34,7 +35,8 @@ class LoginController extends Controller
         return redirect()->back();
     }
 
-    public function logout() {
+    public function logout()
+    {
         Auth::logout();
         Toastr::success('Logout Successful!!');
         return redirect()->route('home');

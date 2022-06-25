@@ -18,13 +18,12 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-       if (Auth::check()) {
-           if (Auth::user()->role != 'admin') {
-            Toastr::error('You don\'t  have permission');
-            return redirect()->back();
-           }
-        return $next($request);
-       }
-       
+        if (Auth::check()) {
+            if (Auth::user()->role != 'admin') {
+                Toastr::error('You don\'t  have permission');
+                return redirect()->back();
+            }
+            return $next($request);
+        }
     }
 }
