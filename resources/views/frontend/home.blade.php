@@ -159,7 +159,7 @@
                             @php
                                 $img = json_decode($item->img)
                             @endphp
-                            <a class="zoomTool" href="product_details.html" title="add to cart"><span
+                            <a class="zoomTool" href="{{ route('details',$item->slug) }}" title="add to cart"><span
                                     class="icon-search"></span> QUICK VIEW</a>
                             <a href="product_details.html">
                                 <img src="{{ $img[0] }}"
@@ -167,8 +167,8 @@
                                 </a>
                             <div class="caption cntr">
                                 <p>{{ $item->name }}</p>
-                                <p><strong> {{ $item->price }}</strong></p>
-                                <h4><a class="shopBtn" href="#" title="add to cart"> Add to cart </a></h4>
+                                <p><strong> {{ $item->price }}&#2547;</strong></p>
+                                <h4><a class="shopBtn" href="{{ route('add-cart',$item->id) }}" title="add to cart"> Add to cart </a></h4>
                                 <div class="actionList">
                                     <a class="pull-left" href="#">Add to Wish List </a>
                                     <a class="pull-left" href="#"> Add to Compare </a>
@@ -182,7 +182,7 @@
             </div>
         </div>
         <div class="well well-small">
-            <h3><a class="btn btn-mini pull-right" href="products.html" title="View more">VIew More<span
+            <h3><a class="btn btn-mini pull-right" href="{{ route('list',[$name='feature']) }}" title="View more">VIew More<span
                         class="icon-plus"></span></a> Featured Products </h3>
             <hr class="soften" />
             <div class="row-fluid">
@@ -193,7 +193,7 @@
                             @php
                                 $img = json_decode($item->img)
                             @endphp
-                            <a class="zoomTool" href="product_details.html" title="add to cart"><span
+                            <a class="zoomTool" href="{{ route('details',$item->slug) }}" title="add to cart"><span
                                     class="icon-search"></span> QUICK VIEW</a>
                             <a href="product_details.html">
                                 <img src="{{ $img[0] }}"
@@ -201,8 +201,8 @@
                                 </a>
                             <div class="caption cntr">
                                 <p>{{ $item->name }}</p>
-                                <p><strong> {{ $item->price }}</strong></p>
-                                <h4><a class="shopBtn" href="#" title="add to cart"> Add to cart </a></h4>
+                                <p><strong> {{ $item->price }}&#2547;</strong></p>
+                                <h4><a class="shopBtn" href="{{ route('add-cart',$item->id) }}" title="add to cart"> Add to cart </a></h4>
                                 <div class="actionList">
                                     <a class="pull-left" href="#">Add to Wish List </a>
                                     <a class="pull-left" href="#"> Add to Compare </a>
@@ -217,7 +217,7 @@
         </div>
 
         <div class="well well-small">
-            <h3><a class="btn btn-mini pull-right" href="products.html" title="View more">VIew More<span
+            <h3><a class="btn btn-mini pull-right" href="{{ route('list',[$name='best']) }}" title="View more">VIew More<span
                         class="icon-plus"></span></a> Best Products </h3>
             <hr class="soften" />
             <div class="row-fluid">
@@ -228,7 +228,7 @@
                             @php
                                 $img = json_decode($item->img)
                             @endphp
-                            <a class="zoomTool" href="product_details.html" title="add to cart"><span
+                            <a class="zoomTool" href="{{ route('details',$item->slug) }}" title="add to cart"><span
                                     class="icon-search"></span> QUICK VIEW</a>
                             <a href="product_details.html">
                                 <img src="{{ $img[0] }}"
@@ -236,8 +236,8 @@
                                 </a>
                             <div class="caption cntr">
                                 <p>{{ $item->name }}</p>
-                                <p><strong> {{ $item->price }}</strong></p>
-                                <h4><a class="shopBtn" href="#" title="add to cart"> Add to cart </a></h4>
+                                <p><strong> {{ $item->price }}&#2547;</strong></p>
+                                <h4><a class="shopBtn" href="{{ route('add-cart',$item->id) }}" title="add to cart"> Add to cart </a></h4>
                                 <div class="actionList">
                                     <a class="pull-left" href="#">Add to Wish List </a>
                                     <a class="pull-left" href="#"> Add to Compare </a>
@@ -252,7 +252,7 @@
         </div>
         <hr>
         <div class="well well-small">
-            <h3><a class="btn btn-mini pull-right" href="products.html" title="View more">VIew More<span
+            <h3><a class="btn btn-mini pull-right" href="{{ route('list',[$name='popular']) }}" title="View more">VIew More<span
                         class="icon-plus"></span></a> Popular Products </h3>
             <hr class="soften" />
             <div class="row-fluid">
@@ -263,7 +263,7 @@
                             @php
                                 $img = json_decode($item->img)
                             @endphp
-                            <a class="zoomTool" href="product_details.html" title="add to cart"><span
+                            <a class="zoomTool" href="{{ route('details',$item->slug) }}" title="add to cart"><span
                                     class="icon-search"></span> QUICK VIEW</a>
                             <a href="product_details.html">
                                 <img src="{{ $img[0] }}"
@@ -271,8 +271,8 @@
                                 </a>
                             <div class="caption cntr">
                                 <p>{{ $item->name }}</p>
-                                <p><strong> {{ $item->price }}</strong></p>
-                                <h4><a class="shopBtn" href="#" title="add to cart"> Add to cart </a></h4>
+                                <p><strong> {{ $item->price }}&#2547;</strong></p>
+                                <h4><a class="shopBtn" href="{{ route('add-cart',$item->id) }}" title="add to cart"> Add to cart </a></h4>
                                 <div class="actionList">
                                     <a class="pull-left" href="#">Add to Wish List </a>
                                     <a class="pull-left" href="#"> Add to Compare </a>

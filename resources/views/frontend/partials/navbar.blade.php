@@ -8,7 +8,7 @@
             </a>
             <div class="nav-collapse">
                 <ul class="nav">
-                    <li class="active"><a href="index.html">Home </a></li>
+                    <li class="{{ Route::is('home') ? 'active':'' }}"><a href="{{ route('home') }}">Home </a></li>
                     <li class=""><a href="list-view.html">List View</a></li>
                     <li class=""><a href="grid-view.html">Grid View</a></li>
                     <li class=""><a href="three-col.html">Three Column</a></li>
@@ -40,7 +40,7 @@
                                 </ul>
                             @endauth
                             @guest
-                            <form class="form-horizontal loginFrm" action="{{ route('login') }}" method="POST">
+                            <form class="form-horizontal loginFrm" action="{{ route('access') }}" method="POST">
                                 @csrf
                                 <div class="control-group">
                                     <input type="email" class="span2" name="email" required id="inputEmail" placeholder="Email">

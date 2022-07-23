@@ -3,7 +3,7 @@
         <div class="span4">
             <h1>
                 <a class="logo" href="index.html"><span>Twitter Bootstrap ecommerce template</span>
-                    <img src="{{asset('frontend/assets/img/logo-bootstrap-shoping-cart.png')}}"
+                    <img src="{{ asset('frontend/assets/img/logo-bootstrap-shoping-cart.png') }}"
                         alt="bootstrap sexy shop">
                 </a>
             </h1>
@@ -17,11 +17,11 @@
             </div>
         </div>
         <div class="span4 alignR">
+            @php
+                $cart = \session()->has('cart') ? \session()->get('cart') : [];
+            @endphp
             <p><br> <strong> Support (24/7) : 0800 1234 678 </strong><br><br></p>
-            <span class="btn btn-mini">[ 2 ] <span class="icon-shopping-cart"></span></span>
-            <span class="btn btn-warning btn-mini">$</span>
-            <span class="btn btn-mini">&pound;</span>
-            <span class="btn btn-mini">&euro;</span>
+            <span class="btn btn-mini">[ {{ count($cart) }} ] <span class="icon-shopping-cart"></span></span>
         </div>
     </div>
 </header>

@@ -12,12 +12,14 @@ use Validator;
 
 class CategoryController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         $data = Category::latest()->get();
-        return view('backend.category',compact('data'));
+        return view('backend.category', compact('data'));
     }
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         $validator = Validator::make($request->all(), [
             'name' => 'required|unique:categories,name',
             'img' => 'required|mimes:png,jpg,jpeg',
@@ -30,13 +32,13 @@ class CategoryController extends Controller
         try {
             if ($request->hasFile('img')) {
                 $file = $request->file('img');
-                $name = time().'.'.$file->getClientOriginalExtension(); 
-                $file->move('uploads/category/',$name);
+                $name = time() . '.' . $file->getClientOriginalExtension();
+                $file->move('uploads/category/', $name);
             }
             Category::create([
-                'name'=>$request->input('name'),
-                'slug'=>Str::slug($request->input('name')),
-                'img'=>'uploads/category/'.$name
+                'name' => $request->input('name'),
+                'slug' => Str::slug($request->input('name')),
+                'img' => 'uploads/category/' . $name
             ]);
             Toastr::success('Category create successfull!!');
             return redirect()->back();
@@ -46,7 +48,8 @@ class CategoryController extends Controller
         }
     }
 
-    public function destroy($id) {
+    public function destroy($id)
+    {
         $cat = Category::find($id);
         if (file_exists(public_path($cat->img))) {
             unlink(public_path($cat->img));
@@ -56,7 +59,8 @@ class CategoryController extends Controller
         return redirect()->back();
     }
 
-    public function update(Request $request,$id) {
+    public function update(Request $request, $id)
+    {
         $validator = Validator::make($request->all(), [
             'name' => 'required'
         ]);
@@ -71,14 +75,14 @@ class CategoryController extends Controller
             $cate->slug = Str::slug($request->input('name'));
             if ($request->hasFile('img')) {
                 $file = $request->file('img');
-                $name = time().'.'.$file->getClientOriginalExtension(); 
-                $file->move('uploads/category/',$name);
+                $name = time() . '.' . $file->getClientOriginalExtension();
+                $file->move('uploads/category/', $name);
 
                 if (file_exists(public_path($cate->img))) {
                     unlink(public_path($cate->img));
                 }
-                
-                $cate->img = 'uploads/category/'.$name;
+
+                $cate->img = 'uploads/category/' . $name;
             }
             $cate->update();
             Toastr::success('Category update successfull!!');

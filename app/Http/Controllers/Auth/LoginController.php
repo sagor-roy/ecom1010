@@ -3,14 +3,21 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
-    public function login(Request $request)
+    public function login()
+    {
+        return view('frontend.auth.login');
+    }
+
+    public function access(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'email' => 'required',
@@ -33,6 +40,30 @@ class LoginController extends Controller
         }
         Toastr::error('Creadential does\'t match our record');
         return redirect()->back();
+    }
+
+    public function register(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required|unique:users,email',
+            'password' => 'required|confirmed',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors(Toastr::error($validator->errors()->all()[0]))->withInput();
+        }
+
+        $user = User::create([
+            'role' => 'user',
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => Hash::make($request->input('password')),
+        ]);
+
+        Auth::login($user);
+        Toastr::success('Successfully Logged In');
+        return redirect()->route('home');
     }
 
     public function logout()
